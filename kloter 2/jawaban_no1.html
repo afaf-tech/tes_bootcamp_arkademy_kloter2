@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Soal 1</title>
+    <!--
+Buatlah sebuah method/function untuk me-return biodata asli Anda, dengan ketentuan sebagai berikut:
+name (String)
+age (Number)
+address (String)
+hobbies (Array)
+is_married (Boolean)
+list_school (Array of Object) with key name, year_in, year_out, and major (if any, if no set “null” )
+skills (Array of Obj) with key skill_name and level (beginner, advanced, expert)
+interest_in_coding (Boolean)
+Return value harus berformat JSON dan sesuai ketentuan di atas.
+Pada readme sebutkan kegunaan JSON pada REST API.
+
+
+
+-->
+
+
+</head>
+
+<body>
+    <script>
+        function getBiodata() {
+            var bio = {
+                "name": "Agung Maulana",
+                "age": 19,
+                "address": "Jl. Pasar Ciluar Darmabakti No.10 RT 02 RW 01 kec. Sukaraja Kab. Bogor Jawa Barat",
+                "hobbies": ["Programming", "Cycling", "Traveling"],
+                "is_married": false,
+                "list_school": [
+                    {
+                        "name": "SDN 81 Mallusesalo",
+                        "year_in": 2006,
+                        "year_out": 2012,
+                        "major": null
+                    },
+                    {
+                        "name": "SMPN 1 Sabbangparu",
+                        "year_in": 2012,
+                        "year_out": 2015,
+                        "major": null
+                    },
+                    {
+                        "name": "SMAN 10 Wajo",
+                        "year_in": 2015,
+                        "year_out": 2018,
+                        "major": "IPA"
+                    }
+                ],
+                "skills": [
+                    {
+                        "skill_name": "Java Programming",
+                        "level": "beginner",
+                    },
+                    {
+                        "skill_name": "Web Programming",
+                        "level": "beginner",
+                    }
+                ],
+                "interest_in_coding": true
+            };
+            return JSON.stringify(bio);
+        }
+
+        console.log(getBiodata());
+        document.write(getBiodata());
+
+
+    </script>
+
+
+</body>
+
+</html>
