@@ -1,4 +1,4 @@
-<?php require_once 'config.php'?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,3 +24,12 @@
         });
     </script>
 </head>
+<?php
+
+$server = "localhost";
+$user = "root";
+$password = "";
+$db = "arkademy_k2";
+$db = mysqli_connect($server, $user, $password, $db);
+
+?>

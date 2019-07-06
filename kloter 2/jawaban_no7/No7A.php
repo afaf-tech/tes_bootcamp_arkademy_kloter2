@@ -289,8 +289,7 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             </div>
                             <div class="modal-body">
-                                <p>Apakah anda yakin ingin menghapus data?</p>
-                                <p class="text-warning"><small>Data yang dihapus tidak dapat kembali.</small></p>
+                                <p>Apakah anda yakin ingin menghapus data ini ?</p>
                             </div>
                             <div class="modal-footer">
                                 <input type="hidden" name="id">
