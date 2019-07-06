@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Soal 3</title>
+</head>
+<!--
+
+Diketahui sebuah operasi matematika yang memiliki kondisi:
+Jika diberikan bilangan genap, maka operasi berupa:
+N = N/2
+Jika diberikan bilangan ganjil, maka operasi berupa:
+N = 3N + 1
+Dengan menggunakan operasi tersebut, kita dapat menentukan berapa operasi yang dijalankan agar sebuah bilangan asli berubah menjadi angka 1 (satu), contoh:
+12 -> 6 -> 3 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1
+Operasi yang dibutuhkan oleh bilangan 12 untuk berubah menjadi angka 1 adalah 9 kali. Buatlah sebuah fungsi/method yang dapat mencari bilangan asli manakah yang membutuhkan operasi terbanyak untuk mencapai angka 1 (satu).
+
+Contoh Input: operasi(100)
+Contoh Output: Bilangan Asli dengan operasi terbanyak = 97
+
+-->
+
+<body>
+    <script>
+        function jmlOperasi($angka) {
+            var Proses = 0;
+            var Hasil = $angka;
+            while (Hasil > 1) {
+                if (Hasil % 2 == 0) {
+                    Hasil = Hasil / 2;
+                } else {
+                    Hasil = (Hasil * 3) + 1;
+                }
+                Proses = Proses + 1;
+            }
+            return Proses;
+        }
+        function Check($num) {
+            var Proses = [];
+            var Highest = 0;
+            var Angka = 0;
+            for (var a = 2; a <= $num; a++) {
+                Proses[a - 2] = jmlOperasi(a);
+            }
+            for (var b = 2; b <= $num; b++) {
+                if (Highest < Proses[b - 2]) {
+                    Highest = Proses[b - 2];
+                    Angka = b;
+                }
+            }
+            console.log("Sampai dengan bilangan " + $num);
+            console.log("Bilangan asli dengan operasi terbanyak adalah " + Angka);
+            console.log("dengan " + Highest + " kali operasi");
+        }
+        Check(100);
+    </script>
+</body>
+
+</html>

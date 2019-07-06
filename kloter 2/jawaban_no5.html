@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Soal 5</title>
+</head>
+<!--
+
+Diberikan sebuah string yang merupakan nama seseorang. Kemudian, nama tersebut dipisahkan per katanya lalu kata tersebut diurutkan berdasarkan urutan ascending alfabet. Setiap kata akan diberikan nilai masing-masing berdasarkan huruf yang terdapat didalamnya serta dikalikan berdasarkan urutannya di dalam list, contoh Christoper Slovanoski. Cristoper berada di list nomor 1 maka dihitung berdasarkan kandungan hurufnya menjadi 3+8+18+9+19+20+15+16+5+18 sama dengan 131. Kemudian, dikalikan 1 karena Christoper berada pada list pertama. Begitu pula dengan kata berikutnya, Slovanoski. Buatlah sebuah function / method yang dapat melakukan hal diatas.
+ 
+Contoh Input: nilaiNama(“Christoper Slovanoski”)
+ 
+Contoh Output: [131, 274]
+
+
+-->
+
+<body>
+    <script>
+
+
+        function nilaiNama($Nama) {
+            var Alphabet = "?abcdefghijklmnopqrstuvwxyz";
+            var Word = Alphabet.split("");
+            var NamaLow = $Nama.toLowerCase();
+            var Name = NamaLow.split(" ");
+            var Result = "[";
+
+            for (var nm = 0; nm < Name.length; nm++) {
+                var Huruf = Name[nm].split("");
+                var Nilai = 0;
+                for (var Hr = 0; Hr < Huruf.length; Hr++) {
+                    for (var al = 0; al < Word.length; al++) {
+                        if (Huruf[Hr] == Word[al]) {
+                            Nilai += al;
+                        }
+                    }
+
+                }
+                var pm = ",";
+                if (nm == Name.length - 1) {
+                    pm = "]";
+                }
+                Nilai = Nilai * (nm + 1);
+                Result = Result + Nilai + pm;
+
+            }
+            console.log(Result);
+        }
+
+        nilaiNama("Christoper Slovanoski");
+
+
+
+    </script>
+</body>
+
+</html>

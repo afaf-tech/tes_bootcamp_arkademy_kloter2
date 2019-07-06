@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Soal 6</title>
+</head>
+<!--
+
+Mr. John dan Mrs. Jane merupakan sepasang suami-istri yang suka misteri. Maka dari itu, mereka mengunjungi pasar malam yang telah diadakan selama 30 tahun. Mereka menikmati liburan tersebut dengan senang hati, terutama ketika mereka mengunjungi wahana ‘escape room’. Salah satu teka-teki yang mereka sukai adalah misteri 15 lampu (bernomor 1 hingga 15) dan 3 saklar (bernomor 1 hingga 3). Pada teka-teki tersebut, semua lampu dimulai dari keadaan mati dan setiap saklar mempunyai kemampuan masing-masing, yaitu saklar nomor X hanya dapat menyalakan/mematikan lampu bernomor kelipatan X. Mereka diberikan sebuah baris angka yang merupakan kombinasi dari angka 1, 2, dan 3 dan memiliki digit maksimal sebanyak 15 karakter. Baris angka tersebut merupakan deretan nomor saklar yang harus ditekan oleh peserta untuk mengetahui lampu mana sajakah yang masih menyala di akhir teka-teki. Akan tetapi, karena kelalaian staf wahana tersebut, saklar tersebut tidak ada yang berfungsi. Buatlah sebuah fungsi/method dengan parameter baris angka teka-teki tersebut untuk membantu Mr. John dan Mrs. Jane memecahkan teka-teki tersebut.
+ 
+
+
+-->
+
+<body>
+    <script>
+        function isBarisValid(baris) {
+            var re = /^[1-3_]{1,15}$/;
+            return re.test(String(baris));
+        }
+
+        function tekaTeki(baris) {
+            if (!isBarisValid(baris)) {
+                print("Baris tidak valid (harus terdiri dari kombinasi angka 1 atau 2 atau 3 dengan maksimal 15 karakter)");
+                return;
+            }
+
+            // 15 lampu dengan status nyalanya
+            let lampu = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+
+            // mengubah baris menjadi instruksi - instruksi
+            let instruksi = baris.split("");
+
+            // mensimulasi setiap tekanan saklar pada instruksi
+            for (let i = 0; i < instruksi.length; i++) {
+                let kelipatan = parseInt(instruksi[i]);
+                for (let j = 0; j < lampu.length; j++) {
+                    // menyalakan atau mematikan lampu sesuai kemampuan saklar 
+                    if ((j + 1) % kelipatan === 0) {
+                        lampu[j] = !lampu[j];
+                    }
+                }
+            }
+
+            let nyala = 0;
+            let mati = 0;
+            // menghitung jumlah lampu yang menyala
+            for (let i = 0; i < lampu.length; i++) {
+                if (lampu[i]) {
+                    nyala++;
+                } else {
+                    mati++;
+                }
+            }
+            console.log(lampu);
+            console.log("Jumlah Lampu Menyala : " + nyala);
+            console.log("jumlah Lampu Mati : " + mati);
+        }
+
+        tekaTeki("1321");    
+    </script>
+</body>
+
+</html>
